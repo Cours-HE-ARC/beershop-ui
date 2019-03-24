@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import AjoutArticlePanier from "../panier/AjoutArticlePanier";
 
+import ReactDom from 'react-dom';
 
 
 class BeerList extends Component {
@@ -12,7 +13,7 @@ class BeerList extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://boutique-service-stage.jcloud.ik-server.com/biere`)
+        axios.get(`/biere`)
             .then(response => {
                 const bieres = response.data;
                 this.setState({ bieres });
@@ -21,9 +22,11 @@ class BeerList extends Component {
     }
 
     showAjoutArticleForm() {
+        console.log("state change")
         this.setState({
             showPopup: !this.state.showPopup
         });
+
     }
 
     render() {
@@ -66,13 +69,7 @@ class BeerList extends Component {
                         </table>
                     </div>
                 </div>
-                {this.state.showPopup ?
-                    <AjoutArticlePanier
-                        text='Close Me'
-                        closePopup={this.showAjoutArticleForm.bind(this)}
-                    />
-                    : null
-                }
+
             </div>
         );
     }
