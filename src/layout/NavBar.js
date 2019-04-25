@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Panier from "../panier/Panier";
+import Panier from "../panier/PaniersList";
 
 
 
@@ -24,6 +24,7 @@ class NavBar extends Component {
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <Link className="dropdown-item"  to="/panier">Panier</Link>
                                 <Link className="dropdown-item"  to="/bieres">Bières</Link>
+                                <Link className="dropdown-item" to="/keycloak">KeyCloak Component Test</Link>
                                 <div className="dropdown-divider"></div>
                                 <a className="dropdown-item" href="/basic">Concepts de bases</a>
                                 <div className="dropdown-divider"></div>

@@ -21,6 +21,10 @@ class BeerList extends Component {
             })
     }
 
+    addArticleToPanier (form) {
+        console.log(form);
+    }
+
     showAjoutArticleForm() {
         console.log("state change")
         this.setState({
@@ -45,6 +49,7 @@ class BeerList extends Component {
                                 <th scope="col">Type</th>
                                 <th scope="col">Contenance</th>
                                 <th scope="col">Prix</th>
+                                <th scope="col">Stock</th>
                                 <th></th>
 
                             </tr>
@@ -59,8 +64,11 @@ class BeerList extends Component {
                                         <td>{biere.type}</td>
                                         <td>{biere.contenanceL}</td>
                                         <td>{biere.prix}</td>
+                                        <td>{biere.stock}</td>
                                         <td>
-                                            <button onClick={this.showAjoutArticleForm.bind(this)} type="button" className="btn btn-secondary btn-sm">Ajout panier</button>
+                                            <input type="number" min="0" max="20"/>
+                                            <label>Pièce(s)</label>
+                                            <button onClick={this.addArticleToPanier.bind(this)} type="button" className="btn btn-secondary btn-sm">Ajout panier</button>
                                         </td>
                                     </tr>
                                 )
